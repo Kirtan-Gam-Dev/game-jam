@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player_Move : MonoBehaviour
 {
 
-    [SerializeField] private float movespeed = 0f; //set movespeed
-    [SerializeField] private float jumpspeed = 0f; //set jumpspeed
+    [SerializeField] private float movespeed = 10f; //set movespeed
+    [SerializeField] private float jumpspeed = 7f; //set jumpspeed
     [SerializeField] private Animator anim;
     [SerializeField] private Rigidbody2D rb;
 
@@ -16,7 +16,11 @@ public class Player_Move : MonoBehaviour
     private bool ground_check= false;
 
     private enum movementstate {idle,run,jump,fall} // animation enum
-    
+
+    void start()
+    {
+
+    }
     
     void Update()
     {
@@ -64,11 +68,12 @@ public class Player_Move : MonoBehaviour
         if(move_H == 1 && ground_check == true )
         {
             state = movementstate.run; // set anim
-            
+            gameObject.transform.localScale = new Vector3(1,1,1);
         }
-        else
+        if(move_H == -1 && ground_check == true )
         {
-           state = movementstate.idle; // set anim
+            state = movementstate.run; // set anim
+            gameObject.transform.localScale = new Vector3(-1,1,1);
         }
         if(rb.velocity.y < -1f)
         {

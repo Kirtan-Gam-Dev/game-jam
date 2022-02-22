@@ -655,8 +655,8 @@ ScriptedImporter:
     uvTransform: {x: -736, y: -157}
   - name: helmet
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.15918559, y: 0.8063589}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1350,8 +1350,8 @@ ScriptedImporter:
     uvTransform: {x: -860, y: -488}
   - name: Leg-3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.34897172, y: 0.8272295}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1951,13 +1951,13 @@ ScriptedImporter:
     uvTransform: {x: -568, y: -226}
   - name: Leg-2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.37680843, y: 0.8414576}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 372
-      y: 489
+      y: 495
       width: 85
       height: 161
     spriteID: 5e58621c1e957174c81f4bd4393c47e3
@@ -2473,8 +2473,8 @@ ScriptedImporter:
     uvTransform: {x: -472, y: -12}
   - name: Leg-1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.69494534, y: 0.84673345}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
