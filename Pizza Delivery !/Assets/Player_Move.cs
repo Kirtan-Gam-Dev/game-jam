@@ -66,7 +66,7 @@ public class Player_Move : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f,jumpspeed),ForceMode2D.Impulse);
             
-            rb.gravityScale = 2;
+            rb.gravityScale = 2.2f;
             number = false;
         }
         if(ground_check == true && Input.GetKeyDown(KeyCode.W))
@@ -74,7 +74,7 @@ public class Player_Move : MonoBehaviour
            if (stamina >= 1f)
            {
             ///Debug.Log(stamina);
-            stamina -= 1f;
+            stamina = 0f;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f,jumpspeed),ForceMode2D.Impulse);
             rb.gravityScale = 1;
             number = true;

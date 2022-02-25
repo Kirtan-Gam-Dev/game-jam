@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    public float walkspeed;
+    public float walkspeed , range;
+    private float distoplayer;
     private bool mustPatrol;
     private bool mustFlip;
 
     public Rigidbody2D rb;
     public Transform GroundCheckPoint;
     public LayerMask groundLayer;
-    public 
+    public Transform player;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,23 @@ public class EnemyPatrol : MonoBehaviour
         if(mustPatrol)
         {
             Patrol();
+        }
+
+        distoplayer = Vector2.Distance(transform.position , player.position);
+
+        if(distoplayer <= range)
+        {
+            if(player.position.x > transform.position.x && transform.localScale.x < 0 || player.position.x < transform.position.x && transform.localScale.x > 0)
+            {
+                Flip();
+            }
+            mustPatrol = false;
+            rb.velocity = Vector2.zero;
+            Attack();
+        }
+        else
+        {
+            mustPatrol = true;
         }
     }
     private void FixedUpdate()
@@ -48,5 +66,10 @@ public class EnemyPatrol : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x * -1 , transform.localScale.y);
         walkspeed *= -1;
         mustPatrol = true; 
+    }
+
+    void Attack()
+    {
+
     }
 }
