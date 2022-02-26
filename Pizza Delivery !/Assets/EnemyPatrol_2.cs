@@ -7,8 +7,11 @@ public class EnemyPatrol_2 : MonoBehaviour
     private float distoplayer;
 
     public float range;
+    public float attackrange;
     public float speed;
+    public Animator anim;
     public GameObject Player;
+    public ParticleSystem blast1;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,12 @@ public class EnemyPatrol_2 : MonoBehaviour
         if(distoplayer <= range)
         {
           Chase();
+          anim.SetBool("attack",false);
+        }
+        if(distoplayer <= attackrange)
+        {
+            blast1.Play();
+          anim.SetBool("attack",true);
         }
         Flip();
     }
@@ -40,4 +49,5 @@ public class EnemyPatrol_2 : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,180,0);
         }
     }
+   
 }

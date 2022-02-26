@@ -8,7 +8,7 @@ public class healthChange : MonoBehaviour
     public Text Health;
     public GameObject player;
     private float HealthMax = 8f;
-    private float currentHealth;
+    public float currentHealth;
     public GameObject DeathScreen;
 
     // Start is called before the first frame update
@@ -26,11 +26,19 @@ public class healthChange : MonoBehaviour
            DeathScreen.SetActive(true);
            player.SetActive(false);
         }
+
+        if(player.transform.position.y <= -7f )
+        {
+            DeathScreen.SetActive(true);
+           player.SetActive(false);
+           currentHealth = currentHealth - 8f;
+            Health.text = currentHealth.ToString();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.collider.tag == "ground")
+        if (coll.collider.tag == "enemy")
         {
             currentHealth = currentHealth - 1f;
         }
