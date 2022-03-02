@@ -42,15 +42,9 @@ public class platformGenerator : MonoBehaviour
             transform.position = new Vector3(transform.position.x + distanceBTW + platformSize,platformHeight,-9);
             Instantiate(platform,transform.position,transform.rotation);
         }
-        Debug.Log(Spawnenemy);
         if(Spawnenemy == 18)
         {
-            Invoke("CreateEnemy",10);
+            Instantiate(Gardian,transform.position + new Vector3( 2 ,2,0),transform.rotation);
         }
-
-    }
-    private void CreateEnemy()
-    {
-        Instantiate(Gardian,transform.position + new Vector3( 2 ,2,0),transform.rotation);
     }
 }

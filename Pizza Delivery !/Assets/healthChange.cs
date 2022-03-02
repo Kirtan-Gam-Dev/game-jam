@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class healthChange : MonoBehaviour
 {
+    public AudioSource damage;
     public Text Health;
     public GameObject player;
     private float HealthMax = 8f;
@@ -32,14 +33,16 @@ public class healthChange : MonoBehaviour
             DeathScreen.SetActive(true);
            player.SetActive(false);
            currentHealth = currentHealth - 8f;
+           damage.Play();
             Health.text = currentHealth.ToString();
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.collider.tag == "enemy")
+        if (coll.GetComponent<Collider2D>().tag == "enemy")
         {
+            damage.Play();
             currentHealth = currentHealth - 1f;
         }
         Health.text = currentHealth.ToString();

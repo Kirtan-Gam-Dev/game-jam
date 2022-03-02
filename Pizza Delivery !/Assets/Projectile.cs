@@ -9,17 +9,17 @@ public class Projectile : MonoBehaviour
 
     public GameObject DestroyEffect;
 
-    private void Start()
-    {
-        Invoke("DestroyProjectile", lifetime);
-    }
     private void Update()
     {
         transform.Translate( Vector2.right  * speed * Time.deltaTime);
     }
-    
-    private void DestroyProjectile()
+
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        Destroy(gameObject);
+        if (coll.GetComponent<Collider2D>().tag == "enemy")
+        {
+            Destroy(gameObject);
+        }
     }
+
 }
